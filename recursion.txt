@@ -1,0 +1,69 @@
+1. What are the base case and recursive case for your factorial?
+    The base case is when n <= 1, which returns 1 because 0! and 1! are both defined as 1. The recursive case is n * factorial(n - 1), which reduces the problem to a smaller factorial until the base case is reached.
+
+2. What goes wrong if you omit the base case?
+    Without a base case, the function would continue calling itself forever because there is no condition that stops the recursion. This eventually causes a stack overflow and the program crashes.
+
+3. Why does naive fib(n) repeat work? (One or two sentences is enough.)
+    The naive recursive Fibonacci function recalculates the same values many times while solving larger problems. For example, fib(3) is computed multiple times when evaluating fib(5).
+
+4. For max_in_array, what shrinks on each recursive call?
+    The portion of the array being considered becomes smaller on each call. This happens because the function advances the pointer with a + 1 and reduces the size parameter from n to n - 1.
+
+5. When might a loop be a better fit than recursion for scanning an array?
+    A loop is often better when performance and memory efficiency are important because it avoids the overhead of multiple function calls. For a simple array scan, an iterative solution is usually easier to read and more efficient.
+
+6. Give one example of a useless comment and one helpful comment for this project.
+    A useless comment would be /* Add two Fibonacci numbers */ because the code already makes that obvious. A helpful comment would be /* WHY: This recursive Fibonacci implementation is for practicing recursion, even though it is inefficient for large inputs. */ because it explains the reason behind the design choice.
+
+7. What would be lost if your why comment were deleted?
+    The reader would no longer understand the reasoning behind the implementation choice. They could see what the code does, but not why recursion was intentionally used despite its inefficiency.
+
+8. Which of your commit messages best captures why, and why is it better than fix?
+    The commit message "Add recursive array maximum and palindrome detection" best captures the purpose of the change because it clearly explains what problem was being solved. It is better than "fix" because someone reading the project history can immediately understand the intent of the commit.
+
+9. List four things a good bug report should include.
+    A good bug report should include a description of the problem, steps to reproduce it, the expected result, and the actual result. These details help another developer understand and diagnose the issue quickly.
+
+10. If an LLM helped you write or debug recursion, what should you disclose — and what should you not submit if you cannot explain it?
+    You should disclose that an LLM was used, describe how it assisted you, and explain how you verified the results. You should not submit code or explanations that you do not understand well enough to explain yourself.
+
+Hand Trace: factorial(4)
+
+Calls made:
+
+factorial(4)
+-> 4 * factorial(3)
+
+factorial(3)
+-> 3 * factorial(2)
+
+factorial(2)
+-> 2 * factorial(1)
+
+factorial(1)
+-> returns 1
+
+Stack unwinds:
+
+factorial(2)
+= 2 * 1
+= 2
+
+factorial(3)
+= 3 * 2
+= 6
+
+factorial(4)
+= 4 * 6
+= 24
+
+Final result: 24
+
+max_in_array()
+
+If the array pointer is NULL or n == 0, the function returns 0.
+The value 0 is used as a sentinel to indicate invalid input or an empty array.
+
+
+
